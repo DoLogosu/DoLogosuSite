@@ -102,87 +102,62 @@
       <h2>Останні події:</h2>
     </div>
 
-    <?php
-
-    $numItems = count($items);
-    $i = 0;
-    $counter = 1;
-    foreach ($items as $key => $value) {
-      if (++$i === $numItems) {
-    ?>
-
+      <?php $counter =1; ?>
         @foreach($items as $item)
-        @if($counter==$i)
+        @if($counter==1)
         <div class="col-12 news-bock mb-2" style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
           <div class="row">
             <div class="col-12 col-md-8 p-1 bg-white">
-              <img class="w-100" style="height: 250px; width: auto; object-fit: cover;" src="{{$item['url']}}">
+              <img class="w-100" style="height: 250px; width: auto; object-fit: cover;" src="{{$item->url}}">
             </div>
             <div class="col-12 col-md-4 " style="height: 100%">
-              <p>{{$item['title']}}</p>
+              <p>{{$item->title}}</p>
             </div>
           </div>
-          <a href="/posts/view/{{$item['id']}}" class="stretched-link"></a>
+          <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
         </div>
         @endif
-        <?php
-        $counter++;
-        ?>
-        @endforeach
-        <!---->
-        <?php
-        $counter = 0;
-        ?>
+            <?php $counter++; ?>
+      @endforeach
+      <?php $counter =1; ?>
         @foreach($items as $item)
-        @if($counter==$i-2)
+        @if($counter==2)
         <div class="col-md-4 news-bock p-1">
           <div style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-            <img class="w-100" src="{{$item['url']}}">
-            <h5 class="p-2">{{$item['title']}}</h5>
+            <img class="w-100" style="height: 200px;object-fit: cover;" src="{{$item->url}}">
+            <h5 class="p-2">{{$item->title}}</h5>
           </div>
-          <a href="/posts/view/{{$item['id']}}" class="stretched-link"></a>
+          <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
         </div>
         @endif
-        <?php
-        $counter++;
-        ?>
-        @endforeach
-        <!---->
-        <?php
-        $counter = 0;
-        ?>
+            <?php $counter++; ?>
+      @endforeach
+      <?php $counter =1; ?>
         @foreach($items as $item)
-        @if($counter==$i-3)
+        @if($counter==3)
         <div class="col-md-4 news-bock p-1">
           <div style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-            <img class="w-100"  src="{{$item['url']}}">
-            <h5 class="p-2">{{$item['title']}}</h5>
+              <img class="w-100" style="height: 200px;object-fit: cover;" src="{{$item->url}}">
+              <h5 class="p-2">{{$item->title}}</h5>
           </div>
-          <a href="/posts/view/{{$item['id']}}" class="stretched-link"></a>
+          <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
         </div>
         @endif
-        <?php
-        $counter++;
-        ?>
-        @endforeach
-        <!---->
-        <?php
-        $counter = 0;
-        ?>
+            <?php $counter++; ?>
+      @endforeach
+      <?php $counter =1; ?>
         @foreach($items as $item)
-        @if($counter==$i-4)
+        @if($counter==4)
         <div class="col-md-4 news-bock p-1">
           <div style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
-            <img class="w-100" src="{{$item['url']}}">
-            <h5 class="p-2">{{$item['title']}}</h5>
+              <img class="w-100" style="height: 200px;object-fit: cover;" src="{{$item->url}}">
+              <h5 class="p-2">{{$item->title}}</h5>
           </div>
-          <a href="/posts/view/{{$item['id']}}" class="stretched-link"></a>
+          <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
         </div>
         @endif
-        <?php
-        $counter++;
-        ?>
-        @endforeach
+            <?php $counter++; ?>
+      @endforeach
 
 
 
@@ -193,13 +168,6 @@
 
 
 
-
-
-
-<?php
-      }
-    }
-?>
 
 
 

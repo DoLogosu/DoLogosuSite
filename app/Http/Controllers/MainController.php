@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\File;
 use Illuminate\Support\Facades\Storage;
 
@@ -12,37 +14,37 @@ class MainController extends Controller
 {
     public function Index(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('index', ['items'=>$posts]);
     }
     public function Posts(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('posts.index', ['items'=>$posts]);
     }
     public function BibleEveryDay(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('bibleEveryDay.index', ['items'=>$posts]);
     }
     public function Homiletics(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('homiletics.index', ['items'=>$posts]);
     }
     public function Literature(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('literature.index', ['items'=>$posts]);
     }
     public function Music(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('music.index', ['items'=>$posts]);
     }
     public function Apologetics(Request $request)
     {
-        $posts = Post::query()->with('Tags') -> with('Category')->get();
+        $posts = DB::select('SELECT * FROM `posts` ORDER BY `posts`.`id` DESC');
         return view('apologetics.index', ['items'=>$posts]);
     }
     public function Questions(Request $request)
@@ -116,6 +118,11 @@ class MainController extends Controller
                 return response()->json(['link' => $url]);
             }
         }
+    }
+
+    public function Send_Question(Request $request)
+    {
+
     }
 
 

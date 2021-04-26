@@ -28,13 +28,10 @@
         z-index: 2;
     }
 </style>
-<script>
-    document.getElementById("navQuestions").classList.add('active');
-</script>
-
 
 <main class="form-question " style="margin-bottom: 130px;">
-    <form>
+    <form method="POST" action="{{ route('question.send') }}">
+        @csrf
         <div class="signal-section">
             <div class="item">
                 <div class="signal-form-container">
@@ -58,6 +55,26 @@
                             <div class="form-group">
                                 <textarea class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="message" name="message" placeholder="Сообщение" required="" autofocus=""></textarea>
                             </div>
+                            <div class="form-group">
+                                <input class="form-control ng-untouched ng-pristine ng-invalid" formcontrolname="theme" name="IP" type="text" placeholder="IP"  value="<?php
+
+                                function getUserIpAddr()
+                                {
+                                    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+                                        //ip from share internet
+                                        $ip = $_SERVER['HTTP_CLIENT_IP'];
+                                    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+
+                                        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+                                    } else {
+                                        $ip = $_SERVER['REMOTE_ADDR'];
+                                    }
+                                    return $ip;
+                                }
+
+                                echo 'Твій IP адрес - ' . getUserIpAddr();
+                                ?>"readonly>
+                            </div>
                             <div class="form-group submit">
                                 <div class="button-block">
                                     <button class="btn btn-primary btn-signal-send"> Отправить </button>
@@ -71,24 +88,5 @@
     </form>
 </main>
 
-<?php
 
-function getUserIpAddr()
-{
-    if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-        //ip from share internet
-        $ip = $_SERVER['HTTP_CLIENT_IP'];
-    } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-
-        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    } else {
-        $ip = $_SERVER['REMOTE_ADDR'];
-    }
-    return $ip;
-}
-
-echo 'Your Real IP - ' . getUserIpAddr();
-
-
-?>
 @endsection
