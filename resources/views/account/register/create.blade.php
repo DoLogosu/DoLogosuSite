@@ -5,11 +5,10 @@
         document.getElementById("navLogin").classList.add('active');
     </script>
 <h2 class="text-center mt-4">Реєстрація</h2>
-
-<form method="POST" action="/register" style="margin-bottom: 100px;">
-    @csrf
-
-    <div class="mb-3">
+<h3>Нажаль ця функція зараз недоступна</h3>
+    <div class="container">
+<!--<form method="POST" action="/register" style="margin-bottom: 100px;">
+     <div class="mb-3">
         <label for="name" class="form-label">Ім'я</label>
         <input type="text" class="form-control" id="name" name="name">
     </div>
@@ -30,5 +29,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Зареєструватися</button>
 </form>
-
+-->
+    </div>
 @endsection

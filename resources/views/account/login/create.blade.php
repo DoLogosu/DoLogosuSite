@@ -28,7 +28,7 @@
         <label for="password">Пароль:</label>
         <input type="password" class="form-control" id="password" name="password" placeholder="Пароль">
     </div>
-    <a style="display:block; text-align: center; margin: auto;" href="/register">Зареєструватися</a>
+    <!--<a style="display:block; text-align: center; margin: auto;" href="/register">Зареєструватися</a>-->
     <input class="btn btn-success mt-3" type="submit" value="Вхід" style="display: block;margin: auto;">
 
 </form>
