@@ -51,7 +51,7 @@
           text-align: center;
           border-radius: 35px;">П</div>
               <p style="font-size: small; padding: 0px 12px; ">План</p>
-              <a href="/bibleEveryDay" class="stretched-link"></a>
+              <a href="#" class="stretched-link"></a>
           </div>
         <div class="col-2 col-md-1" style="color: black; font-weight: lighter">
           <div class="btn border-white text-white md-normal md-right" style="background-color: rgba(255,255,255,0.3);
@@ -159,6 +159,47 @@
             <?php $counter++; ?>
       @endforeach
 
+
+
+      <?php $counter =1; ?>
+      @foreach($items as $item)
+          @if($counter==5)
+              <div class="col-md-4 news-bock p-1">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                      <img class="w-100" style="height: 200px;object-fit: cover;" src="{{$item->url}}">
+                      <h5 class="p-2">{{$item->title}}</h5>
+                  </div>
+                  <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
+              </div>
+          @endif
+          <?php $counter++; ?>
+      @endforeach
+      <?php $counter =1; ?>
+      @foreach($items as $item)
+          @if($counter==6)
+              <div class="col-md-4 news-bock p-1">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                      <img class="w-100" style="height: 200px;object-fit: cover;" src="{{$item->url}}">
+                      <h5 class="p-2">{{$item->title}}</h5>
+                  </div>
+                  <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
+              </div>
+          @endif
+          <?php $counter++; ?>
+      @endforeach
+      <?php $counter =1; ?>
+      @foreach($items as $item)
+          @if($counter==7)
+              <div class="col-md-4 news-bock p-1">
+                  <div style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;">
+                      <img class="w-100" style="height: 200px;object-fit: cover;" src="{{$item->url}}">
+                      <h5 class="p-2">{{$item->title}}</h5>
+                  </div>
+                  <a href="/posts/view/{{$item->id}}" class="stretched-link"></a>
+              </div>
+          @endif
+          <?php $counter++; ?>
+      @endforeach
 
 
 

@@ -9,7 +9,7 @@
 
 @foreach($items as $item)
 @if($item['id']==$id)
-    <form class="mr-4 ml-4" method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data">
+    <form class="mr-4 ml-4" method="POST" action="{{ route('posts.edit') }}" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Title:</label>
@@ -68,6 +68,7 @@
                 $("#summernote").summernote("code", "{{$item['description']}}");
             </script>
         </div>
+        <input type="text" name="id" class="form-control invisible" id="id" value="{{$id}}">
         <input onclick="refresh(); " class="btn btn-success float-right mt-3" type="submit" value="Add">
     </form>
 @endif

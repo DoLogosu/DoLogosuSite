@@ -29,6 +29,7 @@ Route::get('/storage_files', [MainController::class, 'Storage_files'])->middlewa
 Route::post('/questions/send', [MainController::class, 'Send_Question'])->name("question.send");
 Route::post('/storage_files/upload', [MainController::class, 'Upload'])->name("storage_files.upload")->middleware('auth');
 Route::post('/posts/edit', [MainController::class, 'Edit'])->name("posts.edit")->middleware('auth');
+Route::post('/posts/save', [MainController::class, 'Store_Edit'])->name("posts.edit")->middleware('auth');
 Route::post('/posts/upload', [MainController::class, 'UploadImage']);
 Route::post('/posts/store', [MainController::class, 'Store'])->name("post.store")->middleware('auth');
 Route::post('/register', [RegisterController::class,'store']);

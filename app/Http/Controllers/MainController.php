@@ -105,6 +105,33 @@ class MainController extends Controller
             ->with('success', 'Post created successfully.');
     }
 
+    public function Store_Edit(Request $request)
+    {
+        $id = $request->input('id');
+        $title=$request->input('title');
+        $description=$request->input('description');
+        $description_short=$request->input('description_short');
+        $id_category=$request->input('id_category');
+
+        $url='';
+        if ($request->hasFile('image')) {
+            if ($request->file('image')->isValid()) {
+                $extension = $request->image->extension();
+                $name = sha1(microtime()) . "." . $extension;
+                $request->image->storeAs('/public', $name);
+                $url = Storage::url($name);
+            }
+        }
+
+        Post::where('id',$id)->update(array(
+            'title' => $title,
+            'description' => $description,
+            'description_short' => $description_short,
+            'id_category' => $id_category,
+            'url' => $url
+        ));
+        return redirect("/");
+    }
     public function UploadImage(Request $request)
     {
         if ($request->hasFile('file')) {
